@@ -1,0 +1,19 @@
+name = "kotarot"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Run ingestion every 20 minutes
+[triggers]
+crons = ["*/20 * * * *"]
+
+# Workers AI (embeddings: @cf/baai/bge-m3)
+[ai]
+binding = "AI"
+
+# D1 storage. Replace database_id with the id printed by
+# `wrangler d1 create kotarot`.
+[[d1_databases]]
+binding = "DB"
+database_name = "kotarot"
+database_id = "05987110-0b39-4a0d-972a-ab3cf3081894"
